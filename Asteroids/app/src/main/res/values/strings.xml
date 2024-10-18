@@ -5,4 +5,8 @@
     <string name="configurar">Configurar</string>
     <string name="sobre">Sobre</string>
     <string name="salir">Salir</string>
+    <string name="sobre_info" translatable="false">
+        <h1>Autor:</h1> Ivan Carreras
+        <h1>Curso: </h1> 2º DAM
+    </string>
 </resources>
