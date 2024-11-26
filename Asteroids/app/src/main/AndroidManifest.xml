@@ -12,10 +12,23 @@
         android:supportsRtl="true"
         android:theme="@style/Base.Theme.Asteriods"
         tools:targetApi="31">
+        <activity android:name=".GameActivity"
+            android:exported="false"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+            android:hardwareAccelerated="false"/>
         <activity
             android:name=".SobreActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.Light.Dialog"/>
+        <activity
+            android:name=".PreferencesActivity"
+            android:exported="false"
+            />
+        <activity
+            android:name=".Scores"
+            android:exported="false"
+            />
         <activity
             android:name=".MainActivity"
             android:exported="true">

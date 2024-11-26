@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".animacion">
+
+    <Button
+        android:id="@+id/buttonEmpAnim"
+        android:layout_width="199dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="32dp"
+        android:text="Empieza animacion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageAnim"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/buttonSalir"
+        android:layout_width="121dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="144dp"
+        android:layout_marginTop="40dp"
+        android:text="Salir"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonPararAnim"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/imageAnim"
+        android:layout_width="304dp"
+        android:layout_height="282dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="44dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bici1"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/buttonPararAnim"
+        android:layout_width="199dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="20dp"
+        android:text="Parar Animacion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonEmpAnim"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textViewSegundos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="176dp"
+        android:layout_marginTop="48dp"
+        android:text="Segundos: "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonSalir" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

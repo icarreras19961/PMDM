@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="preferencies_principal">
+    <CheckBoxPreference
+        android:key="musica"
+        android:summary="Se reprodueix música de fons"
+        android:title="Reproduir música" />
+    <ListPreference
+        android:defaultValue="1"
+        android:entries="@array/tipusGrafics"
+        android:entryValues="@array/tipusGraficsValors"
+        android:key="grafics"
+        android:summary="Escollir la representació de gràficos"
+        android:title="Tipus de gràfics" />
+    <EditTextPreference
 
+        android:defaultValue="3"
+        android:inputType="number"
+        android:key="fragments"
+        android:summary="En quants trossos es divideix un asteroide"
+        android:title="Número de fragments" />
+
+    <PreferenceCategory android:title="Mode multijugador">
+        <CheckBoxPreference
+            android:title="Activar Multijugador"
+            />
+        <EditTextPreference
+            android:title="Maximo de jugadores"/>
+        <EditTextPreference
+            android:title="Tipo de conexion"/>
+        ...
+    </PreferenceCategory>
 </PreferenceScreen>

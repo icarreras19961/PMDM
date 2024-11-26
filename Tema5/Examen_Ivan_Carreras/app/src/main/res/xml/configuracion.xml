@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <ListPreference
+        android:defaultValue="1"
+        android:entries="@array/colorFondo"
+        android:entryValues="@array/colorFondoValores"
+        android:key="grafics"
+        android:summary="Escollir la representació de gràficos"
+        android:title="Tipus de gràfics" />
+    <EditTextPreference
+
+        android:defaultValue="Ivan"
+        android:inputType="text"
+        android:key="nombre"
+        android:summary="Nombre de usuario"
+        android:title="Introduce tu nombre de usuario" />
+
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="Notificaciones"
+        android:summary="Activar o desactivar las notificaciones"
+        android:title="Activar Notificaciones" />
+</PreferenceScreen>

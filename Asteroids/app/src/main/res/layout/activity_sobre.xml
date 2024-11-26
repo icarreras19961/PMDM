@@ -26,7 +26,7 @@
             />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/button_volver"
             android:layout_width="153dp"
             android:layout_height="84dp"
             android:text="Volver"

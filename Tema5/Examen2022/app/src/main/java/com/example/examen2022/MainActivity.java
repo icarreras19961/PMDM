@@ -19,10 +19,11 @@ public class MainActivity extends AppCompatActivity {
 
 
     Button botonVector;
-
+    private int vector;
+    TextView textViewVector;
 
     Button botonMapa;
-    int mapa;
+    private int mapa;
     TextView textMapa;
 
     @Override
@@ -52,6 +53,10 @@ public class MainActivity extends AppCompatActivity {
         botonMapa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mapa++;
+                textMapa = findViewById(R.id.textViewMapa);
+                textMapa.setText(" " + mapa);
+
                 mapaSwitch(null);
             }
         });
@@ -72,16 +77,23 @@ public class MainActivity extends AppCompatActivity {
 
     public void vectorSwitch(View view) {
         //El intent
-        Intent i = new Intent(this, VectorView.class);
+
+        Intent i = new Intent(this, Vector.class);
+     //   i.putExtra("contador", vector);
         startActivity(i);
     }
 
-    @SuppressLint("ResourceType")
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1234 && resultCode == RESULT_OK) {
+            textViewVector.setText(data.getIntExtra("contador",0)+" ");
+        }
+    }
+
     public void mapaSwitch(View view) {
         //ell intent
-        mapa++;
-        textMapa = findViewById(R.id.textViewMapa);
-        textMapa.setText(" " + mapa);
+
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:39.887642,4.254319"));
         startActivity(intent);
     }
