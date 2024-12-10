@@ -13,12 +13,19 @@
         android:summary="Escollir la representació de gràficos"
         android:title="Tipus de gràfics" />
     <EditTextPreference
-
         android:defaultValue="3"
         android:inputType="number"
         android:key="fragments"
         android:summary="En quants trossos es divideix un asteroide"
         android:title="Número de fragments" />
+
+    <ListPreference
+        android:defaultValue="1"
+        android:entries="@array/tipusMoviment"
+        android:entryValues="@array/tipusGraficsValors"
+        android:key="moviment"
+        android:summary="Tria el tipus de moviment de la nau"
+        android:title="Tipus de moviment" />
 
     <PreferenceCategory android:title="Mode multijugador">
         <CheckBoxPreference

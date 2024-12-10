@@ -10,4 +10,17 @@
         <item>1</item>
         <item>2</item>
     </string-array>
+
+    <string-array name="tipusMoviment">
+        <item>Teclado</item>
+        <item>Sensores</item>
+        <item>Tactil</item>
+    </string-array>
+    <string-array name="tipusMovimentValors">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+
 </resources>
