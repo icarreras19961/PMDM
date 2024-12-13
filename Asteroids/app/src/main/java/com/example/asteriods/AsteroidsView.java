@@ -14,6 +14,8 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.preference.PreferenceManager;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
@@ -61,11 +63,22 @@ public class AsteroidsView extends View implements SensorEventListener {
     private List<AsteroidsGraphic> missiles = new ArrayList<>();
     private List<Double> missileLifetimes = new ArrayList<>();
 
+    /////// SENSORS ///////
+    private SensorManager mSensorManager = null;
+
+    ////// SONIDOS ////////
+    SoundPool soundPool;
+    int idFire, idExplosion;
 
     //-------------------------Constructor---------------------------------//
     public AsteroidsView(Context context, AttributeSet attrs) {
         super(context, attrs);
         Drawable drawableShip, drawableAsteroid;
+        //Sonidos
+        soundPool = new SoundPool( 5, AudioManager.STREAM_MUSIC , 0);
+        idFire = soundPool.load(context, R.raw.dispar, 0);
+        idExplosion = soundPool.load(context, R.raw.explosio, 0);
+        //------
         //(1)
         if (pref.getString("grafics", "1").equals("0")) {
             setLayerType(View.LAYER_TYPE_SOFTWARE, null);
@@ -129,7 +142,6 @@ public class AsteroidsView extends View implements SensorEventListener {
 
         AsteroidsGraphic misil = new AsteroidsGraphic(this, drawableMissile);
         missiles.add(misil);
-
 
 
         for (int i = 0; i < numAsteroids; i++) {
@@ -228,11 +240,12 @@ public class AsteroidsView extends View implements SensorEventListener {
 
 
     private void destroyAsteroid(int i) {
+        soundPool.play(idExplosion, 1, 1, 0, 0, 1);
         asteroids.remove(i);
     }
 
     private void fireMissile() {
-
+        soundPool.play(idFire, 1, 1, 1, 0, 1);
         AsteroidsGraphic newMissile = new AsteroidsGraphic(this, drawableMissile);
         newMissile.setCenX(ship.getCenX());
         newMissile.setCenY(ship.getCenY());
@@ -406,16 +419,17 @@ public class AsteroidsView extends View implements SensorEventListener {
     }
 
     //Activar y desactivar los sensores
-    public void activateSensor(){
-        SensorManager mSensorManager = (SensorManager) getContext().getSystemService(Context.SENSOR_SERVICE);
+    public void activateSensor() {
+        mSensorManager = (SensorManager) getContext().getSystemService(Context.SENSOR_SERVICE);
         List<Sensor> sensorList = mSensorManager.getSensorList(Sensor.TYPE_ACCELEROMETER);
         if (!sensorList.isEmpty()) {
             Sensor accelerometerSensor = sensorList.get(0);
             mSensorManager.registerListener(this, accelerometerSensor, SensorManager.SENSOR_DELAY_GAME);
         }
     }
-    public void desactivateSensor(){
-        mSensorManager.unregisterListener(SensorEventListener);
+
+    public void desactivateSensor() {
+        mSensorManager.unregisterListener(this);
     }
 
 

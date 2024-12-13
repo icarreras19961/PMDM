@@ -23,9 +23,11 @@ public class GameActivity extends AppCompatActivity {
     @Override protected void onResume() {
         super.onResume();
         gameView.getThread().unpause();
+        gameView.activateSensor();
     }
     @Override protected void onDestroy() {
         gameView.getThread().halt();
+        gameView.desactivateSensor();
         super.onDestroy();
     }
 }

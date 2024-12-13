@@ -42,6 +42,9 @@ public class MainActivity extends AppCompatActivity {
         //La cancion
         //Si en las preferencias esta encendida la musica se encendera la musica
         if (pref.getBoolean("musica", true)) {
+            //TODO: Probar si esto funciona (7.4 -3)
+            int pos = mp.getCurrentPosition(); //Posició per on s’està reproduint actualment
+            mp.seekTo(pos);
             mp = MediaPlayer.create(this, R.raw.audio);
             mp.start();
         }
@@ -147,6 +150,7 @@ public class MainActivity extends AppCompatActivity {
     public void onPause() {
         super.onPause();
         if (pref.getBoolean("musica", true)) {
+            //Seguir reproduïnt des de la posició pos
             mp.pause();
         }
     }
